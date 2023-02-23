@@ -4,8 +4,7 @@ let users = [
         phoneNumber: "3248732984",
         score:0
     }
-]
-
+];
 const questions = [
     {
       question: "Why do programmers always mix up Halloween and Christmas?",

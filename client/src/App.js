@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Users from './components/Users';
 import Questions from './components/Questions';
-// const { question } = require("../db/seedData");
 
 function App() {
   const [state, setState] = useState("users")
@@ -9,7 +8,17 @@ function App() {
 
   const nextQuestion = function() {
     if(index<9){
-    setIndex(index + 1)
+    setIndex(index + 1);
+
+    fetch('/api/questions', {
+      method: 'POST',
+      headers: {
+        "Content-Type" : "application/json",
+        "accept" : "application/json"
+      },
+      body: JSON.stringify({index: index+1})
+    })
+
     }
     else{
       setState("finished")

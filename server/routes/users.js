@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { users } = require("/Users/stup/Documents/Multiverse/BrainBuster/db/seedData");
+const { Users } = require("../../db");
 
-router.get('/', (request, response) => {
-    response.json(users)  
+router.get('/', async (request, response) => {
+    response.json(await Users.findAll())  
 });
 
 module.exports = router;
