@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Users from './components/Users';
 import Questions from './components/Questions';
+import LeaderBoard from './components/LeaderBoard';
+
 
 function App() {
   const [state, setState] = useState("users")
@@ -24,9 +26,6 @@ function App() {
       setState("finished")
     }
    }
-   const getQuestionNumber = function() {
-    return index;
-   }
 
     return (
       <div>
@@ -36,19 +35,18 @@ function App() {
 
       {state === "users" &&
       <><Users />
-      <button onClick={() =>setState("questions")}>Start the quiz</button>
+      <button onClick={() =>setState("finished")}>Start the quiz</button>
      </>}
 
      {state === "questions" &&
      <><Questions index= {index}/>
-     <button onClick={nextQuestion}> Next </button></>
+     <button onClick={nextQuestion()}> Next </button></>
      }
 
-    {state === "finished" &&
-    <p>Done!</p>
-     }
-
-      </div>
+     {state === "finished" &&
+     <><LeaderBoard />
+     </>}
+    </div>
     );
 }
 
