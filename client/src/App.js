@@ -35,7 +35,7 @@ function App() {
 
       {state === "users" &&
       <><Users />
-      <button onClick={() =>setState("finished")}>Start the quiz</button>
+      <button onClick={() =>setState("questions")}>Start the quiz</button>
      </>}
 
      {state === "questions" &&
